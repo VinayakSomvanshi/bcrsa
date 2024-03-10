@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "945002006532-b2fagpfl7vmddpliagvld7cb2lr7b2ma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.forveel",
+            "certificate_hash": "1a78131c4d09db31895440bf506f6a68ff6084e2"
+          }
+        },
+        {
           "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
           "client_type": 3
         }

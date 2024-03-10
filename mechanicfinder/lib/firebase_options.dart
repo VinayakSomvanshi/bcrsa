@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,15 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDOiEjm27ji5ZSt5Wc2GwIHkIsA1jkNWTk',
+    appId: '1:945002006532:web:c094d58908ce0e664b8d51',
+    messagingSenderId: '945002006532',
+    projectId: 'mechanicfinder-506f4',
+    authDomain: 'mechanicfinder-506f4.firebaseapp.com',
+    storageBucket: 'mechanicfinder-506f4.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBvnI_HT5yu35fnpHSc_Gr6z24QDKpajaA',
     appId: '1:945002006532:android:43a7c0e780e30aca4b8d51',
@@ -63,7 +66,18 @@ class DefaultFirebaseOptions {
     messagingSenderId: '945002006532',
     projectId: 'mechanicfinder-506f4',
     storageBucket: 'mechanicfinder-506f4.appspot.com',
-    androidClientId: '945002006532-hh15nn1n1kh49h7regb20dmjkgf2q6ao.apps.googleusercontent.com',
+    androidClientId: '945002006532-b2fagpfl7vmddpliagvld7cb2lr7b2ma.apps.googleusercontent.com',
+    iosClientId: '945002006532-amasj0lqp5vdep7oie5vop0pdk9hhh99.apps.googleusercontent.com',
+    iosBundleId: 'com.example.mechanicfinder',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDhf_t8jV_gedw7iTA-6T-EwdeCkabsq0s',
+    appId: '1:945002006532:ios:f8a4094fa8291f944b8d51',
+    messagingSenderId: '945002006532',
+    projectId: 'mechanicfinder-506f4',
+    storageBucket: 'mechanicfinder-506f4.appspot.com',
+    androidClientId: '945002006532-b2fagpfl7vmddpliagvld7cb2lr7b2ma.apps.googleusercontent.com',
     iosClientId: '945002006532-amasj0lqp5vdep7oie5vop0pdk9hhh99.apps.googleusercontent.com',
     iosBundleId: 'com.example.mechanicfinder',
   );
