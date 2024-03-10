@@ -162,7 +162,27 @@ class _HistoryCardState extends State<HistoryCard> {
                                             ),
                                             onPressed: _dialogdesider,
                                           )
-                                        : Container()
+                                        : Container(),
+                                    // (widget.data['status'] == "success")
+                                    //     ? ElevatedButton(
+                                    //         style: ElevatedButton.styleFrom(
+                                    //             shape: RoundedRectangleBorder(
+                                    //                 borderRadius:
+                                    //                     BorderRadius.circular(
+                                    //                         8.0)),
+                                    //             foregroundColor:
+                                    //                 Color(0xffffffff),
+                                    //             backgroundColor:
+                                    //                 Color(0xFF272727),
+                                    //             side: BorderSide(
+                                    //                 color: Color(0xFF272727)),
+                                    //             padding:
+                                    //                 const EdgeInsets.symmetric(
+                                    //                     vertical: 5.0,
+                                    //                     horizontal: 5.0)),
+                                    //         onPressed: () {},
+                                    //         child: Text("pay"))
+                                    //     : Container()
                                   ],
                                 )
                               ],
