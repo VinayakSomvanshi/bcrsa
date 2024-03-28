@@ -54,11 +54,12 @@ dependencies:
   get: ^4.6.5
   walletconnect_flutter_v2: ^2.0.0
   walletconnect_dart: ^0.0.11
-  web3dart: ^2.3.5
+  web3dart: 2.6.1
   provider: ^6.0.0
   flutter_web3: ^2.1.9
   http: ^0.13.3
   permission_handler: ^10.0.0
+  
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +94,7 @@ flutter:
     - assets/images/sad.png
     - assets/images/smile.png
     - assets/images/worker.png
+    - assets/images/abi.json
 
   #  - images/a_dot_ham.jpeg
 

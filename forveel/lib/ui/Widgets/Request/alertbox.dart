@@ -1,22 +1,23 @@
 import 'dart:convert';
-
 import 'dart:ui';
-
+import 'package:web3dart/web3dart.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:forveel/Resources/Internet/check_network_connection.dart';
 import 'package:forveel/Resources/Internet/internetpopup.dart';
 import 'package:forveel/ui/Pages/history_page.dart';
 import 'package:forveel/ui/Pages/home.dart';
+import 'package:forveel/ui/Widgets/Request/RequestSentSuccessPage.dart';
 import 'package:forveel/ui/Widgets/Request/selectvehicle.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
 import '../../Mycolors.dart';
 import '../../loader_dialog.dart';
+import 'package:forveel/utils/web3_service.dart';
+import '../../../utils/constants.dart';
 
 class alertbox extends StatefulWidget {
   DocumentSnapshot mechanic;
@@ -27,8 +28,19 @@ class alertbox extends StatefulWidget {
 }
 
 class _alertboxState extends State<alertbox> {
-  TextEditingController _controller = new TextEditingController();
+  TextEditingController _controller = TextEditingController();
   String vehicle = "";
+  Web3Service web3Service = Web3Service(); // Initialize Web3Service
+  Client httpClient;
+  Web3Client ethClient;
+
+  @override
+  void initState() {
+    super.initState();
+    httpClient = Client();
+    ethClient = Web3Client(infura_url, httpClient);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -129,47 +141,53 @@ class _alertboxState extends State<alertbox> {
       return;
     }
     LoaderDialog(context, false);
-    FirebaseFirestore.instance.collection('service').add({
-      "mechanicid": widget.mechanic.id,
-      "userid": Home.userdata.id,
-      "issue": text,
-      "lat": widget.mechanic['lat'],
-      "long": widget.mechanic['long'],
-      "uservehicle": vehicle,
-      "status": "pending",
-      "review": "",
-      "charges": "",
-      "rating": "",
-      "isreviewed": false,
-      "reason": "",
-      "name": widget.mechanic['name'],
-      "shopname": widget.mechanic['shopname'],
-      "phone": Home.userdata['phone'].toString(),
-      "address": widget.address,
-      "datetime": DateTime.now().millisecondsSinceEpoch.toString(),
-      "photo": widget.mechanic['photo'].toString()
-    }).then((value) {
-      if (!mounted) return;
-      if (value == null) {
-        Fluttertoast.showToast(
-            msg: "An error occurred",
-            gravity: ToastGravity.CENTER,
-            timeInSecForIosWeb: 1,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            fontSize: 16.0);
-        return;
-      }
+    try {
+      final txHash =
+          await web3Service.registerServiceRequest(vehicle, ethClient);
+      print('Transaction hash: $txHash');
+      // Proceed with your existing logic to add the service request to Firestore
+      FirebaseFirestore.instance.collection('service').add({
+        "mechanicid": widget.mechanic.id,
+        "userid": Home.userdata.id,
+        "issue": text,
+        "lat": widget.mechanic['lat'],
+        "long": widget.mechanic['long'],
+        "uservehicle": vehicle,
+        "status": "pending",
+        "review": "",
+        "charges": "",
+        "rating": "",
+        "isreviewed": false,
+        "reason": "",
+        "name": widget.mechanic['name'],
+        "shopname": widget.mechanic['shopname'],
+        "phone": Home.userdata['phone'].toString(),
+        "address": widget.address,
+        "datetime": DateTime.now().millisecondsSinceEpoch.toString(),
+        "photo": widget.mechanic['photo'].toString()
+      }).then((value) {
+        if (!mounted) return;
+        if (value == null) {
+          Fluttertoast.showToast(
+              msg: "An error occurred",
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 16.0);
+          return;
+        }
 
-      Navigator.pop(context as BuildContext);
-      Navigator.pop(context as BuildContext);
-      Navigator.pop(context as BuildContext);
-      Navigator.push(
-          context as BuildContext,
-          PageTransition(
-              child: HistoryPage(),
-              type: PageTransitionType.fade,
-              duration: Duration(milliseconds: 10)));
-    });
+        Navigator.pushReplacement(
+            context,
+            PageTransition(
+                child: RequestSentSuccessPage(),
+                type: PageTransitionType.fade,
+                duration: Duration(milliseconds: 300)));
+      });
+    } catch (e) {
+      print('Error registering service request: $e');
+      // Handle error appropriately
+    }
   }
 }

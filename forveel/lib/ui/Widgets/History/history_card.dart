@@ -435,24 +435,41 @@ class _reviewdialogState extends State<reviewdialog> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  if (rating != null &&
-                      _controller.text != "" &&
-                      _controller.text != null) {
-                    LoaderDialog(context, true);
-                    _addreviewrating(
-                        widget.rid, _controller.text, rating, widget.mid);
-                  } else {
-                    if (rating == null) {
-                      Fluttertoast.showToast(
-                          msg: "Please select an emoji!",
-                          gravity: ToastGravity.CENTER,
-                          timeInSecForIosWeb: 1,
-                          backgroundColor: Colors.red,
-                          textColor: Colors.white,
-                          fontSize: 16.0);
-                    }
+                  try {
+                    if (rating != null &&
+                        _controller.text != "" &&
+                        _controller.text != null) {
+                      LoaderDialog(context, true);
+                      // add dealy here of 5 sec
+                      Future.delayed(Duration(seconds: 5), () {
+                        // _addreviewrating(
+                        //     widget.rid, _controller.text, rating, widget.mid);
+                      });
+                    } else {
+                      if (rating == null) {
+                        Fluttertoast.showToast(
+                            msg: "Please select an emoji!",
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.red,
+                            textColor: Colors.white,
+                            fontSize: 16.0);
+                      }
 
-                    Vibration.vibrate(duration: 100);
+                      Vibration.vibrate(duration: 100);
+                    }
+                  } catch (e) {
+                    debugPrint(e);
+
+                    Fluttertoast.showToast(
+                        msg: "Something went wrong",
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
+                  } finally {
+                    LoaderDialog(context, false);
                   }
                 },
               )
