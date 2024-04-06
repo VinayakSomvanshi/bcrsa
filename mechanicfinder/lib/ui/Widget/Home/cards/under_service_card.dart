@@ -66,7 +66,7 @@ class _USCardState extends State<USCard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "vehicle :${widget.data['uservehicle']}",
+                              "Vehicle :${widget.data['uservehicle']}",
                               style: GoogleFonts.lato(
                                   color: Colors.black45,
                                   fontWeight: FontWeight.bold),
@@ -321,7 +321,7 @@ class _USCardState extends State<USCard> {
                                                                 ? ElevatedButton(
                                                                     //  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                                                                     child: Text(
-                                                                      "Cancel request",
+                                                                      "Cancel Request",
                                                                       style: TextStyle(
                                                                           color:
                                                                               background),
@@ -407,7 +407,7 @@ class _USCardState extends State<USCard> {
                                                                     .circular(
                                                                         40)),
                                                         title: Text(
-                                                          "Contact customer",
+                                                          "Contact Customer",
                                                           textAlign:
                                                               TextAlign.center,
                                                           style: TextStyle(

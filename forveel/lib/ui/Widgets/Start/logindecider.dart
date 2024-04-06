@@ -34,7 +34,7 @@ class _LoginDeciderState extends State<LoginDecider> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/forveel_logo_png.png"),
+            image: AssetImage("assets/images/pizza.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -52,7 +52,7 @@ class _LoginDeciderState extends State<LoginDecider> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Text(
-                      "RSA",
+                      "Road - Rescue",
                       style: GoogleFonts.lato(color: textc, fontSize: 40),
                     ),
                     SizedBox(

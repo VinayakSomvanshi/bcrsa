@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:945002006532:android:8b5b3b3fdf36be664b8d51",
+        "android_client_info": {
+          "package_name": "com.customer.forveel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvnI_HT5yu35fnpHSc_Gr6z24QDKpajaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945002006532-amasj0lqp5vdep7oie5vop0pdk9hhh99.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mechanicfinder"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:945002006532:android:b3948b2af9ba86ae4b8d51",
         "android_client_info": {
           "package_name": "com.example.forveel"
@@ -65,6 +101,42 @@
             "certificate_hash": "1a78131c4d09db31895440bf506f6a68ff6084e2"
           }
         },
+        {
+          "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvnI_HT5yu35fnpHSc_Gr6z24QDKpajaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "945002006532-amasj0lqp5vdep7oie5vop0pdk9hhh99.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.mechanicfinder"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945002006532:android:645d2607a1d1ed5e4b8d51",
+        "android_client_info": {
+          "package_name": "com.mechanic.mechanicfinder"
+        }
+      },
+      "oauth_client": [
         {
           "client_id": "945002006532-hb9d7e502lrunthr3ksnfbq409cnkubc.apps.googleusercontent.com",
           "client_type": 3

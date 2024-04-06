@@ -56,7 +56,7 @@ class _HistoryPageState extends State<HistoryPage> {
             });
           }),
       CustomPopupMenu(
-          title: 'Under service',
+          title: 'Under Service',
           icon: Icons.network_locked,
           onclick: () {
             setState(() {

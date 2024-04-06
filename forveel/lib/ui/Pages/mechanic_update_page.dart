@@ -161,7 +161,7 @@ class _MechanicUpdatePageState extends State<MechanicUpdatePage> {
                                           onPressed: () {},
                                         ),
                                         Text(
-                                          "Contact RSA partner",
+                                          "Contact Road - Rescue partner",
                                           style: GoogleFonts.lato(
                                               color: background),
                                         ),
@@ -177,7 +177,7 @@ class _MechanicUpdatePageState extends State<MechanicUpdatePage> {
                                                   BorderRadius.circular(40),
                                             ),
                                             title: Text(
-                                              "Contact RSA partner",
+                                              "Contact Road - Rescue partner",
                                               textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 color: voilet,
@@ -464,7 +464,7 @@ class _MechanicUpdatePageState extends State<MechanicUpdatePage> {
                           Container(
                             margin: EdgeInsets.all(20),
                             child: Text(
-                              "Experiance: ${_mechanic['exp']} years",
+                              "Experience: ${_mechanic['exp']} years",
                               style: GoogleFonts.lato(color: background),
                             ),
                           ),
@@ -647,7 +647,7 @@ class _MechanicUpdatePageState extends State<MechanicUpdatePage> {
                           maxLines: 5,
                           maxLength: 500,
                           decoration:
-                              InputDecoration(hintText: "Explain reason.."),
+                              InputDecoration(hintText: "Explain Reason"),
                         ),
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(

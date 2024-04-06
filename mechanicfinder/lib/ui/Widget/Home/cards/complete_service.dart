@@ -37,7 +37,7 @@ class _CompleteServiceState extends State<CompleteService> {
       appBar: AppBar(
         backgroundColor: grey,
         title: Text(
-          "Complete service",
+          "Complete Service",
           style: TextStyle(color: background),
         ),
       ),
@@ -97,7 +97,7 @@ class _CompleteServiceState extends State<CompleteService> {
                 decoration: InputDecoration(
                     icon: Icon(FontAwesomeIcons.moneyBill, color: green),
                     contentPadding: EdgeInsets.all(10),
-                    hintText: "Cost of service",
+                    hintText: "Cost of Service",
                     hintStyle: TextStyle(color: Colors.grey.withOpacity(0.7))),
               ),
               SizedBox(
@@ -111,7 +111,7 @@ class _CompleteServiceState extends State<CompleteService> {
                   // ),
                   // color: pink,
                   child: Text(
-                    "submit",
+                    "Submit",
                     style: TextStyle(color: background),
                   ),
                   onPressed: () {

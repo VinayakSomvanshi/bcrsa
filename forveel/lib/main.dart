@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:forveel/ui/Mycolors.dart';
 import 'package:forveel/ui/Widgets/Start/logindecider.dart';
-import 'package:permission_handler/permission_handler.dart'; // Add this line
+import 'package:permission_handler/permission_handler.dart'; // Ensure this line is present
 
 import 'firebase_options.dart';
 
@@ -20,6 +20,8 @@ void main() async {
 
   // Request location permission here
   await _requestLocationPermission();
+  // Request notification permission here
+  await _requestNotificationPermission();
 
   runApp(MaterialApp(
     theme: ThemeData(
@@ -29,8 +31,9 @@ void main() async {
       primaryColor: voilet,
       primaryColorDark: myappbar,
     ),
+    // darkTheme: ThemeData.dark(),
     debugShowCheckedModeBanner: false,
-    title: "RSA",
+    title: "Road - Rescue : Customer",
     home: LoginDecider(),
   ));
 }
@@ -42,5 +45,15 @@ Future<void> _requestLocationPermission() async {
     print('Location permission granted.');
   } else {
     print('Location permission denied.');
+  }
+}
+
+// Function to request notification permission
+Future<void> _requestNotificationPermission() async {
+  PermissionStatus status = await Permission.notification.request();
+  if (status.isGranted) {
+    print('Notification permission granted.');
+  } else {
+    print('Notification permission denied.');
   }
 }

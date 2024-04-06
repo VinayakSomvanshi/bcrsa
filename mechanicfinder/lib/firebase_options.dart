@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBvnI_HT5yu35fnpHSc_Gr6z24QDKpajaA',
-    appId: '1:945002006532:android:43a7c0e780e30aca4b8d51',
+    appId: '1:945002006532:android:645d2607a1d1ed5e4b8d51',
     messagingSenderId: '945002006532',
     projectId: 'mechanicfinder-506f4',
     storageBucket: 'mechanicfinder-506f4.appspot.com',

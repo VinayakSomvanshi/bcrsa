@@ -55,7 +55,7 @@ class _PickupSettingState extends State<PickupSetting> {
                 style: GoogleFonts.lato(color: grey),
               ),
               subtitle: Text(
-                "You picks up the vehicle from the location also",
+                "You also pick up the vehicle from the location.",
                 style: GoogleFonts.lato(color: grey),
               ),
               leading: Icon(

@@ -79,7 +79,7 @@ class _ForgotState extends State<Forgot> {
                             ),
                           ),
                           Text(
-                            "forveel Partner",
+                            "Road - Rescue Partner",
                             style: GoogleFonts.lato(
                                 color: LightColor.lightblack, fontSize: 30),
                           ),
@@ -230,7 +230,7 @@ class _ForgotState extends State<Forgot> {
                                 // ),
                                 // color: voilet,
                                 child: Text(
-                                  "submit",
+                                  "Submit",
                                   style: GoogleFonts.lato(color: background),
                                 ),
                                 onPressed: () {
@@ -433,13 +433,13 @@ class _ForgotState extends State<Forgot> {
           pinpilltopotp = -500;
           pinpilltop = -500;
           pinpillloading = 1;
-          status = "Loging in";
+          status = "Logging in";
         });
         _OnAuthSuccess();
       } else {
         setState(() {
           status = "Wrong Otp";
-          Toast.show("wrong OTP", );
+          Toast.show("Wrong OTP", );
           pinpilltopotp = -500;
           pinpilltop = 1;
           pinpillloading = -500;

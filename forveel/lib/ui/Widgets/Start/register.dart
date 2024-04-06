@@ -84,7 +84,7 @@ class _RegisterState extends State<Register> {
                                 ),
                               ),
                               Text(
-                                "RSA",
+                                "Road - Rescue",
                                 style:
                                     GoogleFonts.lato(color: grey, fontSize: 40),
                               ),
@@ -195,7 +195,7 @@ class _RegisterState extends State<Register> {
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
-                                      "Change number",
+                                      "Change Number",
                                       style: GoogleFonts.lato(color: grey),
                                     ),
                                   ),
@@ -261,7 +261,7 @@ class _RegisterState extends State<Register> {
                                           _controllerotp.text);
                                     },
                                     child: Text(
-                                      "submit",
+                                      "Submit",
                                       style:
                                           GoogleFonts.lato(color: background),
                                     ),
@@ -519,7 +519,7 @@ class _RegisterState extends State<Register> {
           pinpilltopotp = -500;
           pinpilltop = -500;
           pinpillloading = 1;
-          status = "Loging in";
+          status = "Logging in";
         });
         _OnAuthSuccess();
       } else {

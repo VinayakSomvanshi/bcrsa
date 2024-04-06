@@ -168,7 +168,7 @@ class _AddBrandsState extends State<AddBrands> {
                       height: 2,
                     ),
                     Text(
-                      "Add more Brands",
+                      "Add more brands",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.lato(
                           color: grey,
@@ -270,7 +270,7 @@ class _AddBrandsState extends State<AddBrands> {
                       height: 2,
                     ),
                     Text(
-                      "Add more Brands",
+                      "Add more brands",
                       textAlign: TextAlign.center,
                       style: GoogleFonts.lato(
                           color: grey,

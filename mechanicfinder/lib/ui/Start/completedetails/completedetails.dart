@@ -193,7 +193,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
               initialValue: name != null ? name : "",
               decoration: new InputDecoration(
                 counterText: "",
-                labelText: "name",
+                labelText: "Name",
                 border: new OutlineInputBorder(
                   gapPadding: 7,
                   borderRadius: new BorderRadius.circular(5),
@@ -231,7 +231,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
               // ignore: missing_return
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return "Please enter your Shopname";
+                  return "Please enter your shopname";
                 } else {
                   shopname = value;
                   return null;
@@ -514,7 +514,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
                           color: grey,
                         ),
                         AutoSizeText(
-                          "Ac repair",
+                          "Ac Repair",
                           style: GoogleFonts.lato(color: grey),
                         ),
                         Checkbox(
@@ -536,7 +536,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
                           color: grey,
                         ),
                         AutoSizeText(
-                          "Denter/painter",
+                          "Denter/Painter",
                           style: GoogleFonts.lato(color: grey),
                         ),
                         Checkbox(
@@ -558,7 +558,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
                           color: grey,
                         ),
                         AutoSizeText(
-                          "vehicle scanning",
+                          "Vehicle Scanning",
                           style: GoogleFonts.lato(color: grey),
                         ),
                         Checkbox(
@@ -641,7 +641,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Select Adharcard",
+                  "Select Aadhaar Card",
                   style: GoogleFonts.lato(
                       color: voilet, fontWeight: FontWeight.bold, fontSize: 20),
                 ),
@@ -849,7 +849,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
       }
     } else if (pageindex == 2) {
       if (adhar == null) {
-        Toast.show("Please select your adhar!",
+        Toast.show("Please select your Aadhaar Card!",
             textStyle: Colors.red.shade700,
             backgroundColor: background,
             gravity: Toast.center,
@@ -945,7 +945,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)),
               title: Text(
-                "Sumit details?",
+                "Submit details?",
                 style: GoogleFonts.lato(color: grey),
               ),
               actions: <Widget>[
@@ -982,6 +982,7 @@ class _CompleteDetailsState extends State<CompleteDetails> {
           return UploadVideo(photo!, adhar!);
         });
     if (waiter.isNotEmpty) {
+      // Add null check here
       String _adharlink = waiter["adhar"];
       String _photolink = waiter["photo"];
       LoaderDialog(context, false);

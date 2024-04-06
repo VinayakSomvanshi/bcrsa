@@ -30,7 +30,7 @@ class _selectvehicleState extends State<selectvehicle> {
         borderRadius: BorderRadius.circular(40),
       ),
       title: Text(
-        "Select Vehicle type",
+        "Select Vehicle Type",
         style: GoogleFonts.lato(color: textc),
         textAlign: TextAlign.center,
       ),
@@ -82,7 +82,7 @@ class _selectvehicleState extends State<selectvehicle> {
                           color: background,
                         ),
                         Text(
-                          "Two wheeler",
+                          "Two Wheeler",
                           style: TextStyle(
                             color: background,
                             fontWeight: FontWeight.w300,
@@ -116,7 +116,7 @@ class _selectvehicleState extends State<selectvehicle> {
                           color: background,
                         ),
                         Text(
-                          "four wheeler",
+                          "Four Wheeler",
                           style: TextStyle(
                               color: background,
                               fontWeight: FontWeight.w300,

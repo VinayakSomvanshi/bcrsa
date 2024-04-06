@@ -1,4 +1,4 @@
-package com.example.forveel
+package com.customer.forveel
 
 import io.flutter.embedding.android.FlutterActivity
 

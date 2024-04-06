@@ -269,7 +269,7 @@ class _SnapcardState extends State<Snapcard> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40)),
               title: Text(
-                "Contact RSA partner",
+                "Contact Road - Rescue partner",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: voilet, fontSize: 15, fontWeight: FontWeight.w400),

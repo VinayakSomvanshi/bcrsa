@@ -73,13 +73,13 @@ class _DiagnosePageState extends State<DiagnosePage> {
     quesans.add(
       "Engine Starting very late?",
     );
-    quesans.add("Mobil Leakage?");
+    quesans.add("Mobile Leakage?");
     quesans.add("White smoke from silencer?");
     quesans.add("Black smoke from silencer?");
     quesans.add("Bush Tearing?");
     quesans.add("Engine heating up?");
     quesans.add("Pickup very low?");
-    quesans.add("gear stucking?");
+    quesans.add("Gears stuck?");
     quesans.add("Tyres wearing out?");
   }
 }

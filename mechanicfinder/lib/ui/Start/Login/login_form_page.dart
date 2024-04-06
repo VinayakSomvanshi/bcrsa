@@ -59,7 +59,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
             keyboardType: TextInputType.number,
             decoration: new InputDecoration(
               counterText: "",
-              labelText: "phone",
+              labelText: "Phone Number",
               border: new OutlineInputBorder(
                 gapPadding: 7,
                 borderRadius: new BorderRadius.circular(10),
@@ -137,7 +137,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
               // borderSide: BorderSide(color: LightColor.orange),
               child: Text(
                 "Do not have an account? Register",
-                style: GoogleFonts.lato(color: LightColor.orange),
+                style: GoogleFonts.lato(color: Color.fromARGB(255, 255, 255, 255)),
               ),
               onPressed: () {
                 Navigator.push(
@@ -156,7 +156,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
               // borderSide: BorderSide(color: LightColor.skyBlue),
               child: Text(
                 "Forgot password?",
-                style: GoogleFonts.lato(color: LightColor.skyBlue),
+                style: GoogleFonts.lato(color: Color.fromARGB(255, 255, 0, 0)),
               ),
               onPressed: () {
                 Navigator.push(
@@ -230,7 +230,7 @@ class _LoginFormPageState extends State<LoginFormPage> {
         }
       } else {
         Navigator.pop(context);
-        Toast.show("Account does not exits",
+        Toast.show("Account does not exists",
             textStyle: grey,
             backgroundColor: Colors.red,
             gravity: Toast.center,

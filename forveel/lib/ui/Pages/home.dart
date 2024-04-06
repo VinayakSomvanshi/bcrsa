@@ -948,7 +948,7 @@ class _HomeState extends State<Home> {
         ),
         ListTile(
           title: Text(
-            "Qr code",
+            "Qr Code",
             style: AppTheme.titleStyle,
           ),
           leading: Icon(
@@ -1099,7 +1099,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text(
-                "Car scanning",
+                "Car Scanning",
                 style: GoogleFonts.lato(color: grey, fontSize: 14),
               ),
             ),
@@ -1131,7 +1131,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text(
-                "Two wheeler",
+                "Two Wheeler",
                 style: GoogleFonts.lato(color: grey, fontSize: 14),
               ),
               children: List.generate(_bikes.length, (index) {
@@ -1180,7 +1180,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               title: Text(
-                "Four wheeler",
+                "Four Wheeler",
                 style: GoogleFonts.lato(color: grey, fontSize: 14),
               ),
               children: List.generate(_car.length, (index) {

@@ -82,7 +82,7 @@ String calculateresult(List<int> answers)
       result=result+"\nLate Starting of engine may be because of low battery or malfunctioning of the sensor.";
     }
   if(answers[1]==1){
-    result=result+"\n Mobil is leaking because of engine sealkit leakage.";
+    result=result+"\n Mobile is leaking because of engine sealkit leakage.";
   }
     if(answers[2]==1){
     result=result+"\n White smoke is due to the malfunctioning of nozzle.";

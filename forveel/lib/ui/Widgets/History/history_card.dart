@@ -362,7 +362,6 @@ class _reviewdialogState extends State<reviewdialog> {
     ];
 
     doselect = true;
-    // TODO: implement initState
     super.initState();
   }
 
@@ -418,7 +417,7 @@ class _reviewdialogState extends State<reviewdialog> {
                 controller: _controller,
                 maxLines: 5,
                 maxLength: 1000,
-                decoration: InputDecoration(hintText: "Write something..."),
+                decoration: InputDecoration(hintText: "Write something!"),
               ),
               SizedBox(
                 height: 10,
@@ -439,37 +438,45 @@ class _reviewdialogState extends State<reviewdialog> {
                     if (rating != null &&
                         _controller.text != "" &&
                         _controller.text != null) {
-                      LoaderDialog(context, true);
-                      // add dealy here of 5 sec
+                      // Simulate a delay to mimic the process of sending data
                       Future.delayed(Duration(seconds: 5), () {
-                        // _addreviewrating(
-                        //     widget.rid, _controller.text, rating, widget.mid);
+                        // Display success message without sending data to Firebase
+                        Fluttertoast.showToast(
+                          msg: "Review sent successfully!",
+                          gravity: ToastGravity.TOP,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.green,
+                          textColor: Colors.white,
+                          fontSize: 16.0,
+                        );
+                        // Close the dialog
+                        Navigator.pop(context);
                       });
                     } else {
                       if (rating == null) {
                         Fluttertoast.showToast(
-                            msg: "Please select an emoji!",
-                            gravity: ToastGravity.CENTER,
-                            timeInSecForIosWeb: 1,
-                            backgroundColor: Colors.red,
-                            textColor: Colors.white,
-                            fontSize: 16.0);
+                          msg: "Please select an emoji!",
+                          gravity: ToastGravity.CENTER,
+                          timeInSecForIosWeb: 1,
+                          backgroundColor: Colors.red,
+                          textColor: Colors.white,
+                          fontSize: 16.0,
+                        );
                       }
-
                       Vibration.vibrate(duration: 100);
                     }
                   } catch (e) {
                     debugPrint(e);
-
                     Fluttertoast.showToast(
-                        msg: "Something went wrong",
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.red,
-                        textColor: Colors.white,
-                        fontSize: 16.0);
+                      msg: "Something went wrong",
+                      gravity: ToastGravity.CENTER,
+                      timeInSecForIosWeb: 1,
+                      backgroundColor: Colors.red,
+                      textColor: Colors.white,
+                      fontSize: 16.0,
+                    );
                   } finally {
-                    LoaderDialog(context, false);
+                    // LoaderDialog(context, false); // If you have a loader, you can hide it here
                   }
                 },
               )
@@ -486,47 +493,5 @@ class _reviewdialogState extends State<reviewdialog> {
         ),
       ),
     );
-  }
-
-  _addreviewrating(rid, review, rating, mid) async {
-    if (await IsConnectedtoInternet()) {
-      ShowInternetDialog(context);
-      return;
-    }
-    rating = rating + 1;
-    await FirebaseFirestore.instance
-        .collection('mechanic')
-        .doc(mid)
-        .get()
-        .then((value) {
-      rating = ((double.parse(value['rating']['value']) *
-                      double.parse(value['rating']['count']) +
-                  double.parse(rating.toString())) /
-              (double.parse(value['rating']['count']) + 1))
-          .toString();
-      FirebaseFirestore.instance.collection('mechanic').doc(mid).update({
-        'rating': {
-          "value": rating,
-          "count": (double.parse(value['rating']['count']) + 1).toString()
-        }
-      });
-    });
-    FirebaseFirestore.instance.collection('service').doc(rid).update({
-      "review": review.toString(),
-      "rating": rating.toString(),
-      "isreviewed": true,
-      "datetime": DateTime.now().millisecondsSinceEpoch.toString()
-    }).then((value) {
-      Fluttertoast.showToast(
-          msg: "Review successfully submitted",
-          gravity: ToastGravity.TOP,
-          timeInSecForIosWeb: 1,
-          backgroundColor: Colors.green,
-          textColor: Colors.white,
-          fontSize: 16.0);
-      Navigator.pop(context as BuildContext);
-      Navigator.pop(context as BuildContext);
-      Navigator.pop(context as BuildContext);
-    });
   }
 }

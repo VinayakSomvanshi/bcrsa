@@ -33,7 +33,7 @@ class _ChangeBikeState extends State<ChangeBike> {
         backgroundColor: background,
         elevation: 0,
         centerTitle: true,
-        title: Text("Two wheeler"),
+        title: Text("Two Wheeler"),
       ),
       backgroundColor: background,
       body: Container(

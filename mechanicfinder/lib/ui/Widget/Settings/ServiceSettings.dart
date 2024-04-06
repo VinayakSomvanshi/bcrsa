@@ -35,7 +35,7 @@ class _ServiceSettingsState extends State<ServiceSettings> {
         backgroundColor: LightColor.black,
         centerTitle: true,
         title: Text(
-          "Service setting",
+          "Service Setting",
           style: GoogleFonts.lato(color: grey),
         ),
       ),

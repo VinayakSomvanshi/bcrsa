@@ -31,7 +31,7 @@ class _ChangeCarState extends State<ChangeCar> {
         backgroundColor: background,
         elevation: 0,
         centerTitle: true,
-        title: Text("Four wheeler"),
+        title: Text("Four Wheeler"),
 
       ),
       backgroundColor: background,

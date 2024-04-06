@@ -71,8 +71,8 @@ class _waitingState extends State<waiting> {
               margin: const EdgeInsets.all(20),
               alignment: Alignment.center,
               child: Text(
-                "Your have successfully applied for the forveel partner account."
-                "Our service executive will contact you soon on ${widget.data['phone']}. You can fill the complete details"
+                "Your have successfully applied for the Road - Rescue partner account. "
+                "You will be verified soon. You can fill the complete details "
                 "by clicking the button below.",
                 style: GoogleFonts.lato(color: grey),
               ),

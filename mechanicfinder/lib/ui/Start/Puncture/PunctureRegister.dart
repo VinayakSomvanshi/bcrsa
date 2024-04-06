@@ -83,7 +83,7 @@ class _PunctureRegisterState extends State<PunctureRegister> {
               initialValue: name != null ? name : "",
               decoration: new InputDecoration(
                 counterText: "",
-                labelText: "name",
+                labelText: "Name",
                 border: new OutlineInputBorder(
                   gapPadding: 7,
                   borderRadius: new BorderRadius.circular(5),
@@ -112,7 +112,7 @@ class _PunctureRegisterState extends State<PunctureRegister> {
               initialValue: phone != null ? phone : "",
               decoration: new InputDecoration(
                 counterText: "",
-                labelText: "Phone",
+                labelText: "Phone Number",
                 border: new OutlineInputBorder(
                   gapPadding: 7,
                   borderRadius: new BorderRadius.circular(5),
@@ -247,7 +247,7 @@ class _PunctureRegisterState extends State<PunctureRegister> {
                 if (adhar == null) {
                   return Center(
                     child: Text(
-                      "Select your Adhar card",
+                      "Select your Aadhaar Card",
                       style: GoogleFonts.lato(color: grey),
                     ),
                   );
@@ -280,7 +280,7 @@ class _PunctureRegisterState extends State<PunctureRegister> {
                   child: Text(address!, style: GoogleFonts.lato(color: grey)))
               : Text("----"),
           ElevatedButton(
-            child: Text("Select address",
+            child: Text("Select Address",
                 style: GoogleFonts.lato(color: grey, fontSize: 15)),
             onPressed: () async {
               Map addressdata = await Navigator.push(
@@ -333,23 +333,23 @@ class _PunctureRegisterState extends State<PunctureRegister> {
   void _submit() async {
     if (_generalkey.currentState!.validate()) {
       if (photo == null) {
-        Toast.show("Please select your Image", gravity: Toast.center);
+        Toast.show("Please select your image", gravity: Toast.center);
         return;
       }
       if (adhar == null) {
-        Toast.show("Please select your Adhar card", gravity: Toast.center);
+        Toast.show("Please select your Aadhaar Card", gravity: Toast.center);
         return;
       }
       if (address == null) {
-        Toast.show("Please select your Location", gravity: Toast.center);
+        Toast.show("Please select your address", gravity: Toast.center);
         return;
       }
       if (lat == null) {
-        Toast.show("Please select your Location", gravity: Toast.center);
+        Toast.show("Please select your location", gravity: Toast.center);
         return;
       }
       if (long == null) {
-        Toast.show("Please select your Location", gravity: Toast.center);
+        Toast.show("Please select your location", gravity: Toast.center);
         return;
       }
       if (city == null) {
@@ -376,7 +376,7 @@ class _PunctureRegisterState extends State<PunctureRegister> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30)),
                 title: Text(
-                  "Sumit details?",
+                  "Submit details?",
                   style: GoogleFonts.lato(color: grey),
                 ),
                 actions: <Widget>[

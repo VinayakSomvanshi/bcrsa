@@ -29,10 +29,12 @@ class _RegisterFormState extends State<RegisterForm> {
   late String passwordtwo;
   late bool showpass;
   var _formkey = GlobalKey<FormState>();
+  final RegExp _passwordRegex =
+      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+
   @override
   void initState() {
     showpass = true;
-    // TODO: implement initState
     super.initState();
   }
 
@@ -57,13 +59,12 @@ class _RegisterFormState extends State<RegisterForm> {
               keyboardType: TextInputType.number,
               decoration: new InputDecoration(
                 counterText: "",
-                labelText: "phone",
+                labelText: "Phone Number",
                 border: new OutlineInputBorder(
                   gapPadding: 7,
                   borderRadius: new BorderRadius.circular(10),
                 ),
               ),
-              // ignore: missing_return
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter phone number";
@@ -97,10 +98,17 @@ class _RegisterFormState extends State<RegisterForm> {
                   borderRadius: new BorderRadius.circular(10),
                 ),
               ),
-              // ignore: missing_return
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please enter your password";
+                } else if (!_passwordRegex.hasMatch(value)) {
+                  // Return a formatted string with bullet points for each requirement
+                  return "Password must meet the following requirements:\n\n"
+                      "- Contain at least one uppercase letter\n"
+                      "- Contain at least one lowercase letter\n"
+                      "- Contain at least one digit\n"
+                      "- Contain at least one special character (e.g., !@#\$&*~)\n"
+                      "- Be at least 8 characters long";
                 } else if (value != passwordtwo) {
                   passwordone = value;
                   return "Both the passwords does not match";
@@ -137,7 +145,6 @@ class _RegisterFormState extends State<RegisterForm> {
                   borderRadius: new BorderRadius.circular(10),
                 ),
               ),
-              // ignore: missing_return
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return "Please Re-Enter your password";
@@ -158,13 +165,8 @@ class _RegisterFormState extends State<RegisterForm> {
             alignment: Alignment.center,
             width: 100,
             child: ElevatedButton(
-              // color: myyellow,
-              // shape: RoundedRectangleBorder(
-              //     borderRadius: BorderRadius.circular(30)
-              // ),
               onPressed: () {
                 if (_formkey.currentState!.validate()) {
-                  // _startActivity();
                   _loginuser();
                 }
               },
@@ -178,7 +180,6 @@ class _RegisterFormState extends State<RegisterForm> {
             margin: EdgeInsets.only(left: 10),
             alignment: Alignment.bottomCenter,
             child: ElevatedButton(
-              // borderSide: BorderSide(color: voilet),
               child: Text(
                 "Register only for puncture shop",
                 style: GoogleFonts.lato(color: voilet),
@@ -197,7 +198,6 @@ class _RegisterFormState extends State<RegisterForm> {
             margin: EdgeInsets.only(left: 10),
             alignment: Alignment.bottomCenter,
             child: ElevatedButton(
-              // borderSide: BorderSide(color: green),
               child: Text(
                 "Already registered? Login",
                 style: GoogleFonts.lato(color: green),

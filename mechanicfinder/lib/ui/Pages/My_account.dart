@@ -217,7 +217,7 @@ class _MechanicPageUIDState extends State<MechanicPageUID> {
                       color: LightColor.orange,
                     ),
                     title: Text(
-                      "Experiance: ${_mechanic['exp']} years",
+                      "Experience: ${_mechanic['exp']} years",
                       style: GoogleFonts.lato(color: background),
                     ),
                   ),

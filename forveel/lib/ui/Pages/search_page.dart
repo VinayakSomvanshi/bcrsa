@@ -79,7 +79,7 @@ class _SearchPageState extends State<SearchPage> {
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.all(15),
                   border: InputBorder.none,
-                  hintText: "search shopname...",
+                  hintText: "Search Shopname",
                   hintStyle:
                       TextStyle(fontWeight: FontWeight.w400, color: background),
                 ),
@@ -105,7 +105,7 @@ class _SearchPageState extends State<SearchPage> {
                               width: 7,
                             ),
                             Text(
-                              "Search a mechanic..",
+                              "Search a mechanic",
                               style: TextStyle(
                                   fontSize: 24,
                                   color: Colors.grey,

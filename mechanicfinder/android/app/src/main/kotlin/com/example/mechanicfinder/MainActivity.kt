@@ -1,4 +1,4 @@
-package com.example.mechanicfinder
+package com.mechanic.mechanicfinder
 
 import io.flutter.embedding.android.FlutterActivity
 

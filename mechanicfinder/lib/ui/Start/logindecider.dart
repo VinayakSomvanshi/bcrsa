@@ -45,7 +45,7 @@ class _LoginDeciderState extends State<LoginDecider> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Text(
-                  "Roadside Assistance",
+                  "Road - Rescue",
                   style: GoogleFonts.lato(color: textc, fontSize: 40),
                 ),
                 SizedBox(

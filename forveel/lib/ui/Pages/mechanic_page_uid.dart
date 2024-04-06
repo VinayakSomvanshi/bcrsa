@@ -272,7 +272,7 @@ class _MechanicPageUIDState extends State<MechanicPageUID> {
                         Container(
                           margin: EdgeInsets.all(20),
                           child: Text(
-                            "Experiance: ${_mechanic['exp']} years",
+                            "Experience: ${_mechanic['exp']} years",
                             style: GoogleFonts.lato(color: background),
                           ),
                         ),
@@ -318,7 +318,7 @@ class _MechanicPageUIDState extends State<MechanicPageUID> {
                                           color: background),
                                       SizedBox(width: 10),
                                       Text(
-                                        "Request a call",
+                                        "Request a service",
                                         style:
                                             GoogleFonts.lato(color: background),
                                       ),
@@ -326,7 +326,7 @@ class _MechanicPageUIDState extends State<MechanicPageUID> {
                                   ),
                                 )
                               : Text(
-                                  "call request not available currently with this mechanic!",
+                                  "Call request not available currently with this mechanic!",
                                   style: GoogleFonts.lato(color: Colors.grey),
                                 ),
                         ),

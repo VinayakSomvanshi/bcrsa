@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
                       },
                     ),
                     CountsContainer(
-                      text: "Under service",
+                      text: "Under Service",
                       counts: counts[1].toString(),
                       icon: Icons.network_locked,
                       active:

@@ -15,7 +15,7 @@ class Poweredby extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text("Powered by",style: GoogleFonts.lato(color: grey),),
-            Text("RSA",style: GoogleFonts.lato(
+            Text("Road - Rescue",style: GoogleFonts.lato(
                 fontWeight: FontWeight.bold,
                 color: Colors.orange,
                 letterSpacing: 2),),

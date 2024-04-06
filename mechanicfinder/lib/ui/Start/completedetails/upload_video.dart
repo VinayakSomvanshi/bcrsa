@@ -25,12 +25,12 @@ class _UploadVideoState extends State<UploadVideo> {
   Widget? cent;
   String? adhar;
   String? photo;
+
   @override
   void initState() {
+    super.initState();
     cent = Text("Starting...");
     uploadFile();
-    // TODO: implement initState
-    super.initState();
   }
 
   @override
@@ -51,8 +51,8 @@ class _UploadVideoState extends State<UploadVideo> {
               height: MediaQuery.of(context).size.width / 5,
               alignment: Alignment.center,
               child: SpinKitWave(
-                  // color: grey,/
-                  ),
+                color: Colors.blue, // Uncommented and specified a color
+              ),
             ),
           ),
         ),
@@ -61,7 +61,7 @@ class _UploadVideoState extends State<UploadVideo> {
   }
 
   Future uploadFile() async {
-    if (await IsConnectedtoInternet()) {
+    if (!await IsConnectedtoInternet()) {
       Navigator.pop(context);
       ShowInternetDialog(context);
       return;
@@ -70,34 +70,38 @@ class _UploadVideoState extends State<UploadVideo> {
     String date = DateTime.now().millisecondsSinceEpoch.toString();
     FirebaseStorage storage = FirebaseStorage.instance;
     Reference photoReference = storage.ref().child('profile/$date.jpeg');
+    Reference adharReference = storage.ref().child('adhar/$date.jpeg');
 
-    FirebaseStorage storage1 = FirebaseStorage.instance;
-    Reference adharReference = storage1.ref().child('adhar/$date.jpeg');
+    if (widget.photo == null || widget.adhar == null) {
+      Toast.show("Please select a photo and adhar card.",
+          backgroundColor: Colors.red);
+      return;
+    }
 
-    UploadTask photoUploadTask = photoReference.putFile(widget.photo!);
-    cent = _uploadStatus(photoUploadTask);
-    await photoUploadTask.whenComplete(() async {
-      String downloadUrl = await photoReference.getDownloadURL();
-      // Do something with the download URL
-    });
+    try {
+      UploadTask photoUploadTask = photoReference.putFile(widget.photo!);
+      cent = _uploadStatus(photoUploadTask);
+      await photoUploadTask.whenComplete(() async {
+        String downloadUrl = await photoReference.getDownloadURL();
+        // Do something with the download URL
+      });
 
-    UploadTask adharUploadTask = adharReference.putFile(widget.adhar!);
-
-    photoReference.getDownloadURL().then((fileURL) async {
-      photo = fileURL;
+      UploadTask adharUploadTask = adharReference.putFile(widget.adhar!);
       cent = _uploadStatus(adharUploadTask);
       await adharUploadTask.whenComplete(() async {
         String adharURL = await adharReference.getDownloadURL();
         adhar = adharURL;
         if (adhar == null || photo == null) {
-          Toast.show("Some error occurred!",
-              backgroundColor: Colors.red, textStyle: background);
+          Toast.show("Some error occurred!", backgroundColor: Colors.red);
           Navigator.pop(context);
         } else {
           Navigator.pop(context, {"adhar": adhar, "photo": photo});
         }
       });
-    });
+    } catch (e) {
+      Toast.show("An error occurred during upload: $e",
+          backgroundColor: Colors.red);
+    }
   }
 }
 

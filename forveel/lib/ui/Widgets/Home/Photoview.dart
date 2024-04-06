@@ -18,7 +18,7 @@ class _PhotoviewerState extends State<Photoviewer> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Profile photo",style: GoogleFonts.lato(color: background),),
+        title: Text("Profile Photo",style: GoogleFonts.lato(color: background),),
         centerTitle: true,
         backgroundColor: Colors.black,
       ),

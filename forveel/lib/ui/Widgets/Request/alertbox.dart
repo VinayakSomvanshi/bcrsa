@@ -11,7 +11,7 @@ import 'package:forveel/ui/Widgets/Request/RequestSentSuccessPage.dart';
 import 'package:forveel/ui/Widgets/Request/selectvehicle.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
 import 'package:page_transition/page_transition.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../Mycolors.dart';
@@ -30,15 +30,15 @@ class alertbox extends StatefulWidget {
 class _alertboxState extends State<alertbox> {
   TextEditingController _controller = TextEditingController();
   String vehicle = "";
-  Web3Service web3Service = Web3Service(); // Initialize Web3Service
-  Client httpClient;
+  Web3Service web3Service = Web3Service();
+  http.Client httpClient;
   Web3Client ethClient;
 
   @override
   void initState() {
     super.initState();
-    httpClient = Client();
-    ethClient = Web3Client(infura_url, httpClient);
+    httpClient = http.Client();
+    ethClient = Web3Client(infura_url, http.Client());
   }
 
   @override
@@ -99,7 +99,7 @@ class _alertboxState extends State<alertbox> {
                   maxLines: 5,
                   maxLength: 500,
                   decoration: const InputDecoration(
-                    hintText: "Explain issue (optional)...",
+                    hintText: "Explain Issue (Optional)",
                   ),
                 ),
                 ElevatedButton(
@@ -123,7 +123,7 @@ class _alertboxState extends State<alertbox> {
                           textColor: Colors.white,
                           fontSize: 16.0);
                     } else {
-                      _sendrequest(_controller.text, vehicle);
+                      _sendrequest(vehicle);
                     }
                   },
                 ),
@@ -135,24 +135,29 @@ class _alertboxState extends State<alertbox> {
     );
   }
 
-  void _sendrequest(text, vehicle) async {
+  void _sendrequest(String vehicleName) async {
     if (await IsConnectedtoInternet()) {
       ShowInternetDialog(context);
       return;
     }
     LoaderDialog(context, false);
     try {
-      final txHash =
-          await web3Service.registerServiceRequest(vehicle, ethClient);
+      // Assuming vtype is part of the vehicle string and privateKey is available
+      // You might need to adjust this logic based on how you're storing or obtaining vtype and privateKey
+      String vtype =
+          vehicleName.split("-")[1]; // Extracting vtype from vehicle string
+      String privateKey = private_key; // Replace this with actual private key retrieval logic
+
+      final txHash = await web3Service.registerServiceRequest(
+          vehicleName, vtype, privateKey, ethClient);
       print('Transaction hash: $txHash');
       // Proceed with your existing logic to add the service request to Firestore
       FirebaseFirestore.instance.collection('service').add({
         "mechanicid": widget.mechanic.id,
         "userid": Home.userdata.id,
-        "issue": text,
         "lat": widget.mechanic['lat'],
         "long": widget.mechanic['long'],
-        "uservehicle": vehicle,
+        "uservehicle": vehicleName,
         "status": "pending",
         "review": "",
         "charges": "",

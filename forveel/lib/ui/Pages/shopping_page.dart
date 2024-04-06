@@ -10,8 +10,6 @@ class ShoppingPage extends StatefulWidget {
 }
 
 class _ShoppingPageState extends State<ShoppingPage> {
- 
-
   // Create a connector
   final connector = WalletConnect(
     bridge: 'https://bridge.walletconnect.org',
@@ -42,7 +40,8 @@ class _ShoppingPageState extends State<ShoppingPage> {
       }
     }
   }
- @override
+
+  @override
   Widget build(BuildContext context) {
     connector.on(
         'connect',
