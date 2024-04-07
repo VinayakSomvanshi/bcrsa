@@ -20,26 +20,26 @@ import 'package:forveel/utils/web3_service.dart';
 import '../../../utils/constants.dart';
 
 class alertbox extends StatefulWidget {
-  DocumentSnapshot mechanic;
-  String address;
-  alertbox(this.mechanic, this.address);
-  @override
-  _alertboxState createState() => _alertboxState();
+ DocumentSnapshot mechanic;
+ String address;
+ alertbox(this.mechanic, this.address);
+ @override
+ _alertboxState createState() => _alertboxState();
 }
 
 class _alertboxState extends State<alertbox> {
-  TextEditingController _controller = TextEditingController();
-  String vehicle = "";
-  Web3Service web3Service = Web3Service();
-  http.Client httpClient;
-  Web3Client ethClient;
+ TextEditingController _controller = TextEditingController();
+ String vehicle = "";
+ Web3Service web3Service = Web3Service();
+ http.Client httpClient;
+ Web3Client ethClient;
 
-  @override
-  void initState() {
+ @override
+ void initState() {
     super.initState();
     httpClient = http.Client();
-    ethClient = Web3Client(infura_url, http.Client());
-  }
+    ethClient = Web3Client(infura_url, http.Client()); // Ensure infura_url is accessible
+ }
 
   @override
   Widget build(BuildContext context) {
@@ -136,21 +136,18 @@ class _alertboxState extends State<alertbox> {
   }
 
   void _sendrequest(String vehicleName) async {
-    if (await IsConnectedtoInternet()) {
-      ShowInternetDialog(context);
-      return;
-    }
-    LoaderDialog(context, false);
-    try {
-      // Assuming vtype is part of the vehicle string and privateKey is available
-      // You might need to adjust this logic based on how you're storing or obtaining vtype and privateKey
-      String vtype =
-          vehicleName.split("-")[1]; // Extracting vtype from vehicle string
-      String privateKey = private_key; // Replace this with actual private key retrieval logic
+ if (await IsConnectedtoInternet()) {
+    ShowInternetDialog(context);
+    return;
+ }
+ LoaderDialog(context, false);
+ try {
+    String vtype = vehicleName.split("-")[1]; // Extracting vtype from vehicle string
+    String privateKey = private_key; // Replace this with actual private key retrieval logic
 
-      final txHash = await web3Service.registerServiceRequest(
-          vehicleName, vtype, privateKey, ethClient);
-      print('Transaction hash: $txHash');
+    // Corrected call to registerServiceRequest without ethClient argument
+    final txHash = await web3Service.registerServiceRequest(vehicleName, vtype, privateKey);
+    print('Transaction hash: $txHash');
       // Proceed with your existing logic to add the service request to Firestore
       FirebaseFirestore.instance.collection('service').add({
         "mechanicid": widget.mechanic.id,

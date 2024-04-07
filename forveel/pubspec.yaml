@@ -1,7 +1,7 @@
 name: forveel
 description: A new Flutter project.
 
-version: 1.27.19+4
+version: 1.27.19+5
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
@@ -76,5 +76,5 @@ flutter:
     - assets/images/sad.png
     - assets/images/smile.png
     - assets/images/worker.png
-    - assets/images/abi.json
     - assets/images/pizza.png
+    - assets/abi/servicerequest.abi.json
