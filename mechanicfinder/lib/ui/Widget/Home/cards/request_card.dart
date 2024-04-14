@@ -48,7 +48,10 @@ class _RequestCardState extends State<RequestCard> {
         padding: EdgeInsets.all(16),
         child: Text(
           'No request data available.',
-          style: TextStyle(fontSize: 16, color: Colors.black, ),
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.black,
+          ),
         ),
       );
     }
@@ -73,13 +76,13 @@ class _RequestCardState extends State<RequestCard> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "vehicle :${widget.data['uservehicle']}",
+                              "Vehicle :${widget.data['uservehicle']}",
                               style: GoogleFonts.lato(
                                   color: Colors.black45,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text("Issue: ${widget.data['issue']}",
-                                style: GoogleFonts.lato(color: Colors.black)),
+                            // Text("Issue: ${widget.data['issue']}",
+                            //     style: GoogleFonts.lato(color: Colors.black)),
                             Text("Location: ${widget.data['address']}",
                                 style: GoogleFonts.lato(color: textc)),
                             Row(

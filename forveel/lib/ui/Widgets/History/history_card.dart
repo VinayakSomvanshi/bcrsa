@@ -199,10 +199,10 @@ class _HistoryCardState extends State<HistoryCard> {
                                 ? Text(" Rs. ${widget.data['charges']}",
                                     style: TextStyle(
                                         fontSize: 12, color: background))
-                                : Text(
-                                    widget.data['issue'],
-                                    style: TextStyle(color: background),
-                                  ),
+                                :// Text(
+                                  //   widget.data['issue'],
+                                  //   style: TextStyle(color: background),
+                                  // ),
                             Text(
                               "vehicle :${widget.data['uservehicle']}",
                               style: TextStyle(color: background),

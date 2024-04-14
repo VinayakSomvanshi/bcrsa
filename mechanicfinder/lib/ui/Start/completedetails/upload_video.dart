@@ -83,7 +83,7 @@ class _UploadVideoState extends State<UploadVideo> {
       cent = _uploadStatus(photoUploadTask);
       await photoUploadTask.whenComplete(() async {
         String downloadUrl = await photoReference.getDownloadURL();
-        // Do something with the download URL
+        photo = downloadUrl; // Update the photo variable with the download URL
       });
 
       UploadTask adharUploadTask = adharReference.putFile(widget.adhar!);
@@ -103,38 +103,38 @@ class _UploadVideoState extends State<UploadVideo> {
           backgroundColor: Colors.red);
     }
   }
-}
 
-String _bytesTransferred(TaskSnapshot snapshot) {
-  double res = snapshot.bytesTransferred / 1024.0;
-  double res2 = snapshot.totalBytes / 1024.0;
-  double percentage = (res * 100) / res2;
-  return percentage.toStringAsFixed(2);
-}
+  String _bytesTransferred(TaskSnapshot snapshot) {
+    double res = snapshot.bytesTransferred / 1024.0;
+    double res2 = snapshot.totalBytes / 1024.0;
+    double percentage = (res * 100) / res2;
+    return percentage.toStringAsFixed(2);
+  }
 
-Widget _uploadStatus(UploadTask task) {
-  return StreamBuilder<TaskSnapshot>(
-    stream: task.snapshotEvents,
-    builder: (BuildContext context, AsyncSnapshot<TaskSnapshot> snapshot) {
-      Widget subtitle;
-      if (snapshot.hasData) {
-        final TaskSnapshot snap = snapshot.data!;
-        subtitle = Text('${_bytesTransferred(snap)}%');
-      } else {
-        subtitle = const Text('Starting...');
-      }
-      return ListTile(
-        title: task.snapshot.state == TaskState.success
-            ? Text(
-                'Finishing...',
-                style: GoogleFonts.lato(),
-              )
-            : Text(
-                'Uploading..',
-                style: GoogleFonts.lato(),
-              ),
-        subtitle: subtitle,
-      );
-    },
-  );
+  Widget _uploadStatus(UploadTask task) {
+    return StreamBuilder<TaskSnapshot>(
+      stream: task.snapshotEvents,
+      builder: (BuildContext context, AsyncSnapshot<TaskSnapshot> snapshot) {
+        Widget subtitle;
+        if (snapshot.hasData) {
+          final TaskSnapshot snap = snapshot.data!;
+          subtitle = Text('${_bytesTransferred(snap)}%');
+        } else {
+          subtitle = const Text('Starting...');
+        }
+        return ListTile(
+          title: task.snapshot.state == TaskState.success
+              ? Text(
+                  'Finishing...',
+                  style: GoogleFonts.lato(),
+                )
+              : Text(
+                  'Uploading..',
+                  style: GoogleFonts.lato(),
+                ),
+          subtitle: subtitle,
+        );
+      },
+    );
+  }
 }

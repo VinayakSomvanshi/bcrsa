@@ -71,8 +71,8 @@ class _USCardState extends State<USCard> {
                                   color: Colors.black45,
                                   fontWeight: FontWeight.bold),
                             ),
-                            Text("Issue: ${widget.data['issue']}",
-                                style: GoogleFonts.lato(color: Colors.black)),
+                            // Text("Issue: ${widget.data['issue']}",
+                            //     style: GoogleFonts.lato(color: Colors.black)),
                             Text("Location: ${widget.data['address']}",
                                 style: GoogleFonts.lato(color: textc)),
                             Row(
