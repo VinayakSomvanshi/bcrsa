@@ -269,18 +269,18 @@ class _HomeState extends State<Home> {
       case 2:
         {}
         break;
-      case 3:
-        {
-          Navigator.push(
-              context as BuildContext,
-              PageTransition(
-                  child: ShoppingPage(),
-                  type: PageTransitionType.scale,
-                  duration: Duration(milliseconds: 300),
-                  alignment: Alignment.bottomRight));
-        }
+      // case 3:
+      //   {
+      //     Navigator.push(
+      //         context as BuildContext,
+      //         PageTransition(
+      //             child: ShoppingPage(),
+      //             type: PageTransitionType.scale,
+      //             duration: Duration(milliseconds: 300),
+      //             alignment: Alignment.bottomRight));
+      //   }
         break;
-      case 4:
+      case 3:
         {
           Navigator.push(
               context as BuildContext,
